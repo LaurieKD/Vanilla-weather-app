@@ -6,7 +6,7 @@ h1 {
 	font-size: 40px;
 	color: #7a8450;
 	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 ul {
@@ -63,6 +63,12 @@ li {
 	font-size: 60px;
 	font-weight: 600px;
 	line-height: 1;
+}
+
+.active {
+	color: black;
+	text-decoration: none;
+	cursor: default;
 }
 
 .footer {

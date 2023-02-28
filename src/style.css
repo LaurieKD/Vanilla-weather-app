@@ -5,6 +5,8 @@ body {
 h1 {
 	font-size: 40px;
 	color: #7a8450;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
 ul {
@@ -38,6 +40,17 @@ li {
 }
 
 .wind {
+	color: #7a8450;
+}
+
+.btn {
+	background-color: #7a8450;
+	border-color: #7a8450;
+}
+
+.btn:hover {
+	background-color: transparent;
+	border-color: #7a8450;
 	color: #7a8450;
 }
 

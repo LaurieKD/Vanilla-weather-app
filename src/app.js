@@ -32,9 +32,20 @@ function displayTemperature(response) {
 	iconElement.setAttribute("alt", response.data.condition.icon);
 }
 
-let city = "The Hague";
-let apiKey = "2335b3c82b10f0343t05f9bo28bfaca3";
-let apiUrlCity = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-let apiUrlCoord = `https://api.shecodes.io/weather/v1/current?lon={lon}&lat={lat}&key=${apiKey}&units=metric`;
+function search(city) {
+	let apiKey = "2335b3c82b10f0343t05f9bo28bfaca3";
+	let apiUrlCity = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+	let apiUrlCoord = `https://api.shecodes.io/weather/v1/current?lon={lon}&lat={lat}&key=${apiKey}&units=metric`;
+	axios.get(apiUrlCity).then(displayTemperature);
+}
 
-axios.get(apiUrlCity).then(displayTemperature);
+function handleSubmit(event) {
+	event.preventDefault();
+	let cityInputElement = document.querySelector("#city-input");
+	search(cityInputElement.value);
+}
+
+search("The Hague");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

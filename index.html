@@ -12,6 +12,8 @@
 		/>
 		<title>Weather app</title>
 
+		<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -44,10 +46,11 @@
 				<h1>Check the weather</h1>
 				<div class="row">
 					<div class="col-7">
-						<h2>The Hague</h2>
+						<h2 id="city"></h2>
 						<ul>
-							<li>Monday 09:50, few clouds</li>
-							<li>Humidity: <span class="humidity">77%</span>, Wind: <span class="wind">1.54 km/h</span></li>
+							<li>Monday 09:50, <span class="description" id="description"></span></li>
+							<li>Humidity: <span class="humidity" id="humidity">77</span>%</li>
+								<li>Wind: <span class="wind" id="wind">1.54</span> km/h</li>
 						</ul>
 					</div>
 					<div class="col-5">
@@ -63,18 +66,19 @@
 								<span
 									id="temperature"
 									class="current-temperature"
-									>3</span
+								></span>
+								<span class="units"> °C | <a href="#">°F</a></span
 								>
-								<span class="units"> °C | <a href="#">°F</a></span>
 							</div>
+							
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="footer">
-				<small
-					><a href="https://github.com/LaurieKD/Vanilla-weather-app">Open-source code</a> by Laurie Kranendonk</small
-				>
+				<footer></footer>
+					<a href="https://github.com/LaurieKD/Vanilla-weather-app">Open-source code</a> by Laurie Kranendonk
+				</footer>
 			</div>
 		</div>
 		<script src="src/app.js"></script>

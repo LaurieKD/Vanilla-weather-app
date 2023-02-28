@@ -30,6 +30,10 @@ li {
 	top: 0px;
 }
 
+.description {
+	font-style: italic;
+}
+
 .humidity {
 	color: #7a8450;
 }

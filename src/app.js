@@ -13,7 +13,8 @@ function formatDate(timestamp) {
 	return `${day}, ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+	console.log(response.data.daily);
 	let forecastElement = document.querySelector("#forecast");
 
 	let forecastHTML = `<div class="row">`;
@@ -60,8 +61,10 @@ function displayTemperature(response) {
 function search(city) {
 	let apiKey = "2335b3c82b10f0343t05f9bo28bfaca3";
 	let apiUrlCity = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-	let apiUrlCoord = `https://api.shecodes.io/weather/v1/current?lon={lon}&lat={lat}&key=${apiKey}&units=metric`;
+	let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
 	axios.get(apiUrlCity).then(displayTemperature);
+	axios.get(apiUrlForecast).then(displayForecast);
+	console.log(apiUrlForecast);
 }
 
 function handleSubmit(event) {
@@ -99,4 +102,3 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("The Hague");
-displayForecast();

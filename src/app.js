@@ -13,6 +13,29 @@ function formatDate(timestamp) {
 	return `${day}, ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+	let forecastElement = document.querySelector("#forecast");
+
+	let forecastHTML = `<div class="row">`;
+	let days = ["Wed", "Thu", "Fri"];
+	days.forEach(function (day) {
+		forecastHTML =
+			forecastHTML +
+			` 
+            <div class="col-2">
+              <div class="weather-forecast-date" >
+              ${day}
+              </div>
+              <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="sunny" class="icon-forecast">
+              <div class="weather-forecast-temp"><span class="warm">18</span><span class="cold"> 12</span> </div>
+            </div>
+`;
+	});
+
+	forecastHTML = forecastHTML + `</div>`;
+	forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
 	console.log(response.data);
 	let temperatureElement = document.querySelector("#temperature");
@@ -76,3 +99,4 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("The Hague");
+displayForecast();

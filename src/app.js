@@ -35,7 +35,7 @@ function displayForecast(response) {
               <div class="weather-forecast-date" >
               ${formatForecastDay(forecastDay.time)}
               </div>
-              <img src=${forecastDay.condition.icon_url} alt=${forecastDay.condition.icon}>
+              <img width="60px" src=${forecastDay.condition.icon_url} alt=${forecastDay.condition.icon}>
               <div class="weather-forecast-temp"><span class="warm">${Math.round(
 								forecastDay.temperature.maximum
 							)}</span>°<span class="cold"> ${Math.round(forecastDay.temperature.minimum)}</span>° </div>
@@ -84,32 +84,9 @@ function handleSubmit(event) {
 	search(cityInputElement.value);
 }
 
-function displayFahrenheitTemperature(event) {
-	event.preventDefault();
-	celsiusLink.classList.remove("active");
-	fahrenheitLink.classList.add("active");
-	let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-	let temperatureElement = document.querySelector("#temperature");
-	temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function displayCelsiusTemperature(event) {
-	event.preventDefault();
-	celsiusLink.classList.add("active");
-	fahrenheitLink.classList.remove("active");
-	let temperatureElement = document.querySelector("#temperature");
-	temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("The Hague");
